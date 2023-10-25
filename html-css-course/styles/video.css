@@ -41,6 +41,20 @@ p {
 
 .thumbnail-row {
   margin-bottom: 12px;
+  position: relative;
+}
+
+.video-time {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  font-family: Roboto, Arial;
+  right: 5px;
+  bottom: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px;
+  border-radius: 2px;
 }
 
 .video-grid {
