@@ -1,3 +1,21 @@
+const toProperCase = (nameVar) => {
+  return nameVar.charAt(0).toUpperCase() + nameVar.slice(1).toLowerCase();
+}
+
+console.log(toProperCase("will"));
+
+const getUserNameFromEmail = (email) => {
+  return email.slice(0, email.indexOf("@"));
+}
+
+console.log(getUserNameFromEmail("will@email.com"));
+
+function sum(num1 = 0, num2 = num1) {
+  return num1 + num2;
+}
+
+console.log(sum(2, 8));
+
 let myName = "Will Berg";
 let counter = 0;
 let myLetter;
