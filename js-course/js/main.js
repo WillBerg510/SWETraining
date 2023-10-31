@@ -1,3 +1,7 @@
+let soup = "chicken noodle soup";
+let customerIsBanned = true;
+console.log(customerIsBanned ? "Sorry, no soup for you!" : soup ? "Yes, we have soup." : "Sorry, no soup today.");
+
 switch (Math.floor(Math.random() * 5) + 1) {
   case 1:
     console.log(1);
@@ -68,9 +72,9 @@ else {
 }
 console.log(grade);
 
-let soup = "chicken noodle soup";
+soup = "chicken noodle soup";
 let crackers = true;
-let customerIsBanned = false;
+customerIsBanned = false;
 let reply;
 if (customerIsBanned) {
   reply = "No soup for you!";
