@@ -1,6 +1,6 @@
 // User Input
 let nameInput = prompt("Please enter your name.");
-if (nameInput.trim()) {
+if (nameInput.trim() ) {
   console.log(nameInput.trim());
 }
 else {
