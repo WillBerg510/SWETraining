@@ -1,3 +1,11 @@
+// User Input
+let nameInput = prompt("Please enter your name.");
+if (nameInput.trim()) {
+  console.log(nameInput.trim());
+}
+else {
+  console.log("No name given.");
+}
 let soup = "chicken noodle soup";
 let customerIsBanned = true;
 console.log(customerIsBanned ? "Sorry, no soup for you!" : soup ? "Yes, we have soup." : "Sorry, no soup today.");
