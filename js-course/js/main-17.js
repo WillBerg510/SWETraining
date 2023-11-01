@@ -1,3 +1,44 @@
+function pizzaFactory(pizzaSize) {
+  const crust = "original";
+  const size = pizzaSize;
+  return {
+    bake: () => console.log(`Baking a ${size} ${crust} crust pizza.`)
+  };
+}
+
+const pizzaVar = pizzaFactory("small");
+pizzaVar.bake();
+
+class Pizza {
+  constructor(pizzaSize) {
+    this._size = pizzaSize;
+    this._crust = "original";
+  }
+
+  getCrust() {
+    return this._crust;
+  }
+
+  setCrust(pizzaCrust) {
+    this._crust = pizzaCrust;
+  }
+}
+
+class SpecialtyPizza extends Pizza {
+  constructor(pizzaSize) {
+    super(pizzaSize);
+    this._type = "The Works";
+  }
+
+  slice() {
+    console.log("Our " + this._size + " " + this._type + " pizza has 8 slices.");
+  }
+}
+
+myPizza = new SpecialtyPizza("medium");
+myPizza.slice();
+
+
 const band = {
   vocals: "Robert Plant",
   guitar: "Jimmy Page",
