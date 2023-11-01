@@ -1,3 +1,20 @@
+const myArray = [];
+myArray[0] = "Will";
+myArray[1] = 1001;
+myArray[2] = false;
+
+myArray.push("school");
+myArray.pop();
+myArray.unshift(50);
+myArray.shift();
+
+console.log(myArray[myArray.length - 1]);
+console.log(myArray[0]);
+console.log(myArray.slice(1));
+console.log(myArray.join().split(","));
+console.log(myArray.concat(myArray.slice(1)));
+console.log([myArray, myArray.join().split(",")]);
+
 var x = 1;
 let y = 2;
 const z = 3;
