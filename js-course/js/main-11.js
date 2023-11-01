@@ -1,3 +1,20 @@
+var x = 1;
+let y = 2;
+const z = 3;
+
+function myFunc() {
+  var x = 10;
+  const z = 5;
+  {
+    var x = 11;
+    const z = 6;
+  }
+  console.log(x);
+  console.log(z);
+}
+
+myFunc();
+
 const toProperCase = (nameVar) => {
   return nameVar.charAt(0).toUpperCase() + nameVar.slice(1).toLowerCase();
 }
