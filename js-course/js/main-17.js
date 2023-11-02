@@ -1,3 +1,17 @@
+try {
+  throw new customError("Nothing's wrong, I just gave a custom error.")
+} catch(err) {
+  console.error(err.stack);
+} finally {
+  console.log("Anyways,");
+}
+
+function customError(message) {
+  this.message = message;
+  this.name = "customError";
+  this.stack = `${this.name}: ${this.message}`;
+}
+
 function pizzaFactory(pizzaSize) {
   const crust = "original";
   const size = pizzaSize;
