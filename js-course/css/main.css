@@ -22,3 +22,15 @@ main {
 h1 {
   font-size: 250%;
 }
+
+.green {
+  background-color: green;
+}
+
+.darkblue {
+  background-color: darkblue;
+}
+
+.largertext {
+  font-size: 30px;
+}

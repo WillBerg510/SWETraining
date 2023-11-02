@@ -36,7 +36,7 @@ while (view2.lastChild) {
 const createDivs = (parent, iter) => {
   const newDiv = document.createElement("div");
   newDiv.textContent = iter;
-  newDiv.style.backgroundColor = "#00f";
+  newDiv.classList.add("darkblue");
   newDiv.style.width = "100px";
   newDiv.style.height = "100px";
   newDiv.style.margin = "10px";
@@ -49,3 +49,52 @@ const createDivs = (parent, iter) => {
 for (let i = 1; i <= 3; i++) {
   createDivs(view2, i);
 }
+
+const oneSquare = view2.firstChild;
+console.log(oneSquare);
+
+const doSomething = () => {
+  console.log("Beep!");
+}
+
+oneSquare.addEventListener("click", doSomething);
+oneSquare.removeEventListener("click", doSomething);
+
+oneSquare.addEventListener("click", function (event) {
+  event.stopPropagation();
+  event.target.textContent = "!!";
+  oneSquare.addEventListener("mouseover", function (event) {
+    oneSquare.classList.add("largertext");
+  })
+  oneSquare.addEventListener("mouseout", function (event) {
+    oneSquare.classList.remove("largertext");
+  })
+})
+
+document.addEventListener("readystatechange", function (event) {
+  if (event.target.readyState === "complete") {
+    console.log("Let's go!");
+    initApp();
+  }
+})
+
+function initApp() {
+  const twoSquare = oneSquare.nextSibling;
+  twoSquare.addEventListener("click", function (event) {
+    event.stopPropagation();
+    twoSquare.style.transition = "background-color 0.5s";
+    twoSquare.style.backgroundColor = "#ee4444";
+  });
+  view2.addEventListener("click", function (event) {
+    view2.style.transition = "background-color 0.5s";
+    view2.style.backgroundColor = "#ffffff";
+  });
+  const threeSquare = twoSquare.nextSibling;
+  console.log(threeSquare);
+  threeSquare.addEventListener("click", function (event) {
+    event.stopPropagation();
+    threeSquare.style.transition = "background-color 0.5s";
+    threeSquare.classList.toggle("green");
+    threeSquare.classList.toggle("darkblue");
+  })
+};
