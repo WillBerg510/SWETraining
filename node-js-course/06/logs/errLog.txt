@@ -1,3 +1,11 @@
 20240110	22:31:53	12d3286d-7fd5-4604-8bd3-6f70f1cd553d	TypeError:fsPromises.readFil is not a function
 20240112	15:37:18	941085e4-5a32-4eda-9a8a-40ca5936cf0f	Error: Not allowed by CORS
 20240113	21:56:37	f230e00f-7d49-4e6c-85ff-fd51443b7134	SyntaxError: Expected property name or '}' in JSON at position 1
+20240202	15:32:45	73c0149f-0855-4c3f-8523-ca1d1a18dc55	TypeError: data.setEmployees is not a function
+20240202	15:37:03	14f90011-bb5d-48d9-9581-4bd9b9bf18ae	SyntaxError: Expected property name or '}' in JSON at position 1
+20240202	15:37:05	b4f205c7-2687-4f9d-b739-c0553e6da1e2	SyntaxError: Expected property name or '}' in JSON at position 1
+20240202	18:28:09	cebdad1e-47c9-45d0-8406-44e34b55aedb	TypeError: res.Status is not a function
+20240204	22:56:36	28d809d1-edc9-4564-aa7c-ba0b2c87c132	ReferenceError: origin is not defined
+20240204	22:58:28	1fc66dde-4e17-4301-a38a-381f0047e6d4	ReferenceError: origin is not defined
+20240204	22:59:37	aae63b9f-db1a-49cc-acaf-7f250678bce8	ReferenceError: whitelist is not defined
+20240204	23:00:58	adeb45b3-17bb-40ef-af77-f2b30eafb7ef	ReferenceError: whitelist is not defined

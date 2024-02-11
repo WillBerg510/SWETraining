@@ -1,26 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const data = {};
-data.employees = require('../../data/employees.json');
+const empContorller = require('../../controllers/employeesController');
+const ROLES_LIST = require('../../config/roles_list');
+const verifyRoles = require('../../middleware/verifyRoles');
 
-router.route('/').get(function(req, res) {
-  res.json(data.employees);
-}).post(function(req, res) {
-  res.json({
-    'firstname': req.body.firstname,
-    'lastname': req.body.lastname
-  })
-}).put(function(req, res) {
-  res.json({
-    'firstname': req.body.firstname,
-    'lastname': req.body.lastname
-  })
-}).delete(function(req, res) {
-  res.json({'id': req.body.id})
-});
+router.route('/')
+  .get(empContorller.getAllEmployees)
+  .post(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor), empContorller.createNewEmployee)
+  .put(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor), empContorller.updateEmployee)
+  .delete(verifyRoles(ROLES_LIST.Admin), empContorller.deleteEmployee);
 
-router.route('/:id').get(function(req, res) {
-  res.json({'id': req.params.id});
-});
+router.route('/:id').get(empContorller.getEmployee);
 
 module.exports = router;
