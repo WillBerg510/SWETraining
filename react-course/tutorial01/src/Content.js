@@ -1,9 +1,11 @@
 import React from 'react'
 import {useState} from 'react'
+import ItemList from './ItemList'
 
-const Content = () => {
+const Content = ({items, handleCheck, handleDelete}) => {
   const [name, setName] = useState('Will');
   const [count, setCount] = useState(0);
+
   const handleNameChange = function() {
     const names = ['Will', 'Lam', 'Sabrina', 'Brianna', 'Izzy'];
     const int = Math.floor(Math.random() * names.length);
@@ -25,18 +27,28 @@ const Content = () => {
 
   return (
     <main>
-        <p onDoubleClick={handleClick2}>
-          Hello, {name}!
+      {items.length ? (
+        <ItemList items={items} handleCheck={handleCheck} handleDelete={handleDelete}/>
+      ) : (
+        <p style={{
+          marginTop: '1.15rem',
+          marginBottom: '1.15rem'
+        }}>
+          No items to display.
         </p>
-        <button onClick={handleNameChange}>
-          Click
-        </button>
-        <button onClick={handleClick}>
-          Click
-        </button>
-        <button onClick={handleClick3}>
-          Click
-        </button>
+      )}
+      <p onDoubleClick={handleClick2}>
+        Hello, {name}!
+      </p>
+      <button onClick={handleNameChange}>
+        Click
+      </button>
+      <button onClick={handleClick}>
+        Click
+      </button>
+      <button onClick={handleClick3}>
+        Click
+      </button>
     </main>
   )
 }
