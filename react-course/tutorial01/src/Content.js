@@ -26,7 +26,7 @@ const Content = ({items, handleCheck, handleDelete}) => {
   }
 
   return (
-    <main>
+    <>
       {items.length ? (
         <ItemList items={items} handleCheck={handleCheck} handleDelete={handleDelete}/>
       ) : (
@@ -49,7 +49,7 @@ const Content = ({items, handleCheck, handleDelete}) => {
       <button onClick={handleClick3}>
         Click
       </button>
-    </main>
+    </>
   )
 }
 
