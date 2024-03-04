@@ -1,32 +1,27 @@
 import React from 'react'
-import {useEffect, useContext, useState} from 'react'
-import {useParams, Link} from 'react-router-dom'
-import DataContext from './context/DataContext';
-import {useHistory} from 'react-router-dom';
+import {useEffect} from 'react'
+import {useParams, Link, useHistory} from 'react-router-dom'
+//import DataContext from './context/DataContext';
 import {format} from 'date-fns';
-import api from './api/posts';
+//import api from './api/posts';
+import {useStoreState, useStoreActions} from 'easy-peasy';
 
 const EditPost = () => {
-  const [editTitle, setEditTitle] = useState('');
-  const [editBody, setEditBody] = useState('');
-  const {posts, setPosts} = useContext(DataContext);
   const {id} = useParams();
-  const post = posts.find(post => (post.id).toString() === id);
   const history = useHistory();
+  const editTitle = useStoreState((state) => state.editTitle);
+  const editBody = useStoreState((state) => state.editBody);
+  const editPost = useStoreActions((actions) => actions.editPost);
+  const setEditTitle = useStoreActions((actions) => actions.setEditTitle);
+  const setEditBody = useStoreActions((actions) => actions.setEditBody);
+  const getPostById = useStoreState((state) => state.getPostById);
+  const post = getPostById(id);
 
-  const handleEdit = async function(id) {
+  const handleEdit = function(id) {
     const datetime = format(new Date(), 'MMMM dd, yyyy pp');
     const updatedPost = {id, title: editTitle, datetime, body: editBody};
-    try {
-      const response = await api.put('/posts/' + id, updatedPost);
-      setPosts(posts.map(post => post.id === id ? {...response.data} : post));
-      setEditTitle('');
-      setEditBody('');
-      history.push('/');
-    }
-    catch (err) {
-      console.log('Error: ' + err.message);
-    }
+    editPost(updatedPost);
+    history.push('/post/' + id);
   };
 
   useEffect(() => {
@@ -56,7 +51,7 @@ const EditPost = () => {
             value={editBody}
             onChange={(e) => setEditBody(e.target.value)}
           />
-          <button type="submit" onClick={() => handleEdit(post.id)}>Submit</button>
+          <button type="button" onClick={() => handleEdit(post.id)}>Submit</button>
         </form>
       </>
       }
